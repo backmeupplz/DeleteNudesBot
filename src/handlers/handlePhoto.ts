@@ -17,6 +17,7 @@ export async function handlePhoto(ctx: Context) {
   const model = await nsfw.load(process.env.MODEL)
   const image = await tf.node.decodeImage(pic.data, 3)
   const predictions = await model.classify(image)
+  console.log(`Predictions for photo with id ${file.file_id}:`, predictions)
   image.dispose()
   for (const prediction of predictions) {
     if (
