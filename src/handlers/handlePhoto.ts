@@ -22,7 +22,7 @@ export async function handlePhoto(ctx: Context) {
   for (const prediction of predictions) {
     if (
       ['Porn', 'Hentai'].includes(prediction.className) &&
-      prediction.probability > 0.6
+      prediction.probability > 0.8
     ) {
       console.log(`Photo with id ${file.file_id} is NSFW`)
       return ctx.deleteMessage()

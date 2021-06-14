@@ -5,9 +5,10 @@ Just add [@DeleteNudesBot](https://t.me/DeleteNudesBot) to a group, give it righ
 # Installation and local launch
 
 1. Clone this repo: `git clone https://github.com/backmeupplz/DeleteNudesBot`
-2. Create `.env` with the environment variables listed below
-3. Run `yarn` in the root folder
-4. Run `yarn develop`
+2. Launch the [mongo database](https://www.mongodb.com/) locally
+3. Create `.env` with the environment variables listed below
+4. Run `yarn` in the root folder
+5. Run `yarn develop`
 
 And you should be good to go! Feel free to fork and submit pull requests. Thanks!
 
@@ -15,6 +16,7 @@ And you should be good to go! Feel free to fork and submit pull requests. Thanks
 
 - `TOKEN` — Telegram bot token
 - `MODEL_PATH` — _Optional_ path to the NSFW model files that you can download [here](https://github.com/gantman/nsfw_model)
+- `MONGO`— URL of the mongo database
 
 Also, please, consider looking at `.env.sample`.
 
