@@ -1,4 +1,3 @@
-import { localeActions } from './handlers/language'
 // Setup @/ aliases for modules
 import 'module-alias/register'
 // Config dotenv
@@ -8,19 +7,14 @@ dotenv.config({ path: `${__dirname}/../.env` })
 import { bot } from '@/helpers/bot'
 import { ignoreOldMessageUpdates } from '@/middlewares/ignoreOldMessageUpdates'
 import { sendHelp } from '@/handlers/sendHelp'
-import { i18n, attachI18N } from '@/helpers/i18n'
-import { setLanguage, sendLanguage } from '@/handlers/language'
-import { attachUser } from '@/middlewares/attachUser'
+import { handlePhoto } from '@/handlers/handlePhoto'
 
 // Middlewares
 bot.use(ignoreOldMessageUpdates)
-bot.use(attachUser)
-bot.use(i18n.middleware(), attachI18N)
 // Commands
 bot.command(['help', 'start'], sendHelp)
-bot.command('language', sendLanguage)
-// Actions
-bot.action(localeActions, setLanguage)
+// Handlers
+bot.on('photo', handlePhoto)
 // Errors
 bot.catch(console.error)
 // Start bot

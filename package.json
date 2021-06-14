@@ -1,9 +1,9 @@
 {
-  "name": "telegraf-template",
+  "name": "delete-nudes-bot",
   "version": "1.0.0",
-  "description": "Telegram bot template based on telegraf.js.org",
+  "description": "Telegram bot that deletes nude pictures from groups ",
   "main": "dist/app.js",
-  "repository": "https://github.com/backmeupplz/telegraf-template",
+  "repository": "https://github.com/backmeupplz/DeleteNudesBot",
   "author": "backmeupplz <backmeupplz@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -15,18 +15,17 @@
     "watch-js": "nodemon dist/app.js"
   },
   "devDependencies": {
-    "@types/mongoose": "^5.10.18",
     "@types/node": "^15.12.1",
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "@typegoose/typegoose": "^7.6.1",
+    "@tensorflow/tfjs-node": "^3.7.0",
+    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "module-alias": "^2.2.2",
-    "mongoose": "5.10.18",
+    "nsfwjs": "^2.4.0",
     "telegraf": "^4.3.0",
-    "telegraf-i18n": "^6.6.0",
     "typescript": "^4.3.2"
   },
   "_moduleAliases": {
