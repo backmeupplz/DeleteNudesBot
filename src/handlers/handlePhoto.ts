@@ -3,7 +3,15 @@ import axios from 'axios'
 const nsfw = require('nsfwjs')
 const tf = require('@tensorflow/tfjs-node')
 
+let model
+;(async () => {
+  model = await nsfw.load(process.env.MODEL)
+})()
+
 export async function handlePhoto(ctx: Context) {
+  if (!model) {
+    return
+  }
   const photo = (ctx.update as any).message.photo[0]
   const photoPileId = photo.file_id
   const file = await ctx.telegram.getFile(photoPileId)
@@ -14,7 +22,6 @@ export async function handlePhoto(ctx: Context) {
     }
   )
   console.log(`Got photo with id ${file.file_id}`)
-  const model = await nsfw.load(process.env.MODEL)
   const image = await tf.node.decodeImage(pic.data, 3)
   const predictions = await model.classify(image)
   console.log(`Predictions for photo with id ${file.file_id}:`, predictions)
