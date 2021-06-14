@@ -13,6 +13,7 @@ export async function handlePhoto(ctx: Context) {
       responseType: 'arraybuffer',
     }
   )
+  console.log(`Got photo with id ${file.file_id}`)
   const model = await nsfw.load(process.env.MODEL)
   const image = await tf.node.decodeImage(pic.data, 3)
   const predictions = await model.classify(image)
@@ -22,7 +23,9 @@ export async function handlePhoto(ctx: Context) {
       ['Porn', 'Hentai'].includes(prediction.className) &&
       prediction.probability > 0.6
     ) {
+      console.log(`Photo with id ${file.file_id} is NSFW`)
       return ctx.deleteMessage()
     }
   }
+  console.log(`Photo with id ${file.file_id} is SFW`)
 }
