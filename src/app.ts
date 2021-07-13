@@ -8,6 +8,7 @@ import { bot } from '@/helpers/bot'
 import { ignoreOldMessageUpdates } from '@/middlewares/ignoreOldMessageUpdates'
 import { sendHelp } from '@/handlers/sendHelp'
 import { handlePhoto } from '@/handlers/handlePhoto'
+import { handleSticker } from '@/handlers/handleSticker'
 import { attachChat } from '@/middlewares/attachChat'
 
 // Middlewares
@@ -17,6 +18,7 @@ bot.use(attachChat)
 bot.command(['help', 'start'], sendHelp)
 // Handlers
 bot.on('photo', handlePhoto)
+bot.on('sticker', handleSticker)
 // Errors
 bot.catch(console.error)
 // Start bot
