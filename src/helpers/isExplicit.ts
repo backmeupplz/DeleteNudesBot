@@ -10,7 +10,7 @@ tf.enableProdMode()
 
 let model
 ;(async () => {
-  model = await nsfw.load(process.env.MODEL)
+  model = await nsfw.load(process.env.MODEL, { type: 'graph' })
 })()
 
 export async function isExplicit(file: File, convertToPNG = false) {
