@@ -15,7 +15,7 @@ And you should be good to go! Feel free to fork and submit pull requests. Thanks
 # Environment variables
 
 - `TOKEN` — Telegram bot token
-- `MODEL_PATH` — _Optional_ path to the NSFW model files that you can download [here](https://github.com/gantman/nsfw_model)
+- `MODEL` — _Optional_ path to the NSFW model files that you can download [here](https://github.com/gantman/nsfw_model)
 - `MONGO`— URL of the mongo database
 
 Also, please, consider looking at `.env.sample`.
